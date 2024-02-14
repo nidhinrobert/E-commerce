@@ -1,0 +1,22 @@
+.product_profile{
+    display: flex;
+    gap:30px;
+}
+.image-content{
+    width: 50%;
+    border: 2px solid black;
+    display: flex;
+    gap: 50px;
+}
+.thumbnailer img{
+    width: 88px;
+    height: 104px;
+}
+.thumbnailer{
+    display: flex;
+    flex-direction: column;
+}
+.preview-box img{
+width: 430px;
+height: 420px;
+}

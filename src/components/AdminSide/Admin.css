@@ -1,0 +1,44 @@
+.product h3{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 26px;
+    
+}
+.product{
+    border: 2px solid black;
+    
+}
+.productContent{
+    display: flex;
+}
+.product-box{
+    border: 2px solid black;
+    margin: 25px 0px 35px 30px;
+    width: 220px;
+    
+}
+.product-box p{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+.product-box h5{
+    font-size: 19px;
+}
+.product-box h6{
+    font-size: 12px;
+    margin: 0;
+}
+.img-box{
+    border: 2px solid;
+    min-height: 210px;
+}
+.img-box img{
+    object-fit: cover;
+    width: 217px;
+    height: 214px;
+}
+.create-btn{
+display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,23 @@
+.Category-space{
+    border: 2px solid black;
+
+}
+.spacing{
+    padding: 0px 10px 0px 10px;
+    display: flex;
+    gap: 20px;
+   
+    
+    
+}
+.categories{
+    border: 2px solid black;
+     max-width: 234px;
+     text-align: center;
+}
+.categoryImg-box img{
+    object-fit: cover;
+    width: 217px;
+    height: 189px;
+    border: 2px solid black;
+}
