@@ -68,7 +68,7 @@ export const editCategory = createAsyncThunk('items/editCategory', async (data) 
     }
 });
 
-
+//gittttt
 
 export const deleteCategory = createAsyncThunk('items/deleteCategory',async(id) => {
     try{
