@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { editCategory, getCategorybyId } from '../../redux/slice';
-
+import "./Createcategory.css";
 
 const EditCategory = ({category,closeModal}) => {
     
@@ -84,8 +84,9 @@ const EditCategory = ({category,closeModal}) => {
                
                 
 
-                <div>
-                    <button type='submit'  >Edit User</button>
+                <div className='buttons'>
+                    <button type='submit'  >Edit</button>
+                    <button onClick={closeModal} className='cancel_btn'>Cancel</button>
                 </div>
             </form>
 

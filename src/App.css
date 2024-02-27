@@ -4,13 +4,8 @@
   
   
 }
-.nav-bar{
-  display: flex;
-  justify-content: space-between;
-  border: 2px solid black;
-  align-items: center;
-  
-}
+
 h1,h2,h3,h4,h5{
   margin: 0;
 }
+

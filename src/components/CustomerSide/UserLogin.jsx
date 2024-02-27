@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate,Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import "./User.css"
 
 const UserLogin = () => {
     const [email, setEmail] = useState('');
@@ -18,7 +19,10 @@ const UserLogin = () => {
             });
             if (response.data && response.data.token) {
                 localStorage.setItem('token', response.data.token);
-                Cookies.set('token', response.data.token, { expires: 7 }); // Expires in 7 days
+                localStorage.setItem('userId', response.data.user._id);
+                Cookies.set('token', response.data.token, { expires: 7 }); 
+                Cookies.set('userId',response.data.token,{expires:7});
+                
                 navigate("/")
             } else {
 
@@ -36,14 +40,14 @@ const UserLogin = () => {
     };
 
     return (
-        <div className='Signin'>
-            <h1>LogIn</h1>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+        <div className='signin-container'>
+            <h1>Login</h1>
+            {error && <p className='error-message'>{error}</p>}
             <form onSubmit={handleSubmit}>
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' required />
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required />
-                <button type='submit'>LogIn</button> 
-                <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+                <button className='login' type='submit'>Login</button> 
+                <p className='signup-link'>Don't have an account? <Link to="/signup">Sign Up</Link></p>
             </form>
         </div>
     );

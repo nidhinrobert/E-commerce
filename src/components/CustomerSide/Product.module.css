@@ -1,0 +1,78 @@
+.product_listing_container {
+    padding: 20px;
+}
+
+.category_name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.product_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product_box {
+    width: calc(25% - 20px);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative; /* Ensure the container is positioned */
+    overflow: hidden; /* Hide overflow content for the blur effect */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.product_box:hover {
+    box-shadow: 0 0 10px rgb(212 181 13 / 80%);
+    transform: translateY(-5px);
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.product_box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+   
+    filter: blur(5px); /* Apply blur effect */
+    z-index: -1; /* Ensure the blurred background is behind the content */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.product_box:hover::before {
+    right: 0; /* Remove blur effect on hover */
+}
+
+
+.Product_prof {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.product_image {
+    width: 167px;
+    height: 162px;
+}
+
+.product_name {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.product_price{
+    display: flex;
+    gap: 7px;
+    align-items: baseline;
+}
+.product_discount {
+    margin-top: 5px;
+}
+.discounted_prices{
+    font-weight: 500;
+    font-size: 20px;
+}

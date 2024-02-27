@@ -1,22 +1,120 @@
-.product_profile{
+.product-profile-container {
     display: flex;
-    gap:30px;
-}
-.image-content{
-    width: 50%;
-    border: 2px solid black;
+    margin: 20px;
+  }
+  
+  .product-images {
+    flex: 1;
     display: flex;
-    gap: 50px;
-}
-.thumbnailer img{
-    width: 88px;
-    height: 104px;
-}
-.thumbnailer{
+    gap: 55px;
+  }
+  
+  .thumbnails {
     display: flex;
+    gap: 12px;
+    overflow-x: auto;
     flex-direction: column;
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  .thumbnail.active {
+    opacity: 0.5; /* Adjust as needed */
 }
-.preview-box img{
-width: 430px;
-height: 420px;
+  
+  .preview-box {
+    margin-top: 10px;
+  }
+  
+  .preview-image {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .product-details {
+    flex: 1;
+    
+    margin-left: 20px;
+  }
+  
+  .product-details h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .price-details {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  
+  .price-details h2 {
+    font-size: 14px;
+    
+    margin-right: 10px;
+  }
+  
+  .discount {
+    font-size: 13px;
+    color:#0eb60b;
+  }
+  
+  .product-details h3 {
+    font-size: 18px;
+    
+  }
+  
+  .product-details p {
+    margin-bottom: 20px;
+  }
+  
+  .add-to-cart-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color:grey; /* Default background color */
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
+
+.add-to-cart-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start from the left side */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 165, 0, 0.5); /* Orange color with opacity */
+    z-index: 1;
+    transition: left 0.3s ease; /* Smooth transition for color flow */
+}
+
+.add-to-cart-btn:hover::before {
+    left: 100%; /* Move to the right side on hover */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #fb641b; /* Change background color on hover */
+}
+
+  .actual-price {
+    text-decoration: line-through;
+    color: #757575; /* Gray color for the strike-through effect */
+    margin-right: 10px;
+  }
+  
+  .discounted-price {
+    color: black;
+    font-size: 23px;
+    font-weight: 600;
+  }
+  

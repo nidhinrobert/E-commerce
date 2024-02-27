@@ -1,0 +1,48 @@
+.success-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 164px;
+    background-color: bisque;
+}
+.success-container h2{
+    color: #4caf50;
+}
+
+.buttons-container {
+    margin-top: 20px;
+}
+
+.cancel-button,
+.ok-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cancel-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.ok-button {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+.cancelled-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 164px;
+    background-color:  bisque;
+}
+.cancelled-container h2{
+    color: red;
+}

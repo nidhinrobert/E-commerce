@@ -10,7 +10,6 @@ const Adminpanel = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
-      // If token doesn't exist, navigate back to the login page
       navigate('/login');
     }
   }, [navigate]);

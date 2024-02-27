@@ -1,0 +1,104 @@
+.Order {
+    display: flex;
+    gap: 7px;
+    margin-top: 45px;
+}
+
+.order_products {
+    
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+}
+.ordered{
+    width: 50%;
+}
+.orderedProducts {
+    gap: 33px;
+    display: flex;
+    border-bottom: 1px solid #c5c5c5;
+    padding: 25px 24px;
+    align-items: center;
+}
+
+.orderedImg {
+    width: 100px;
+    height: 100px;
+}
+.orderedProductSub{
+  display: grid;
+}
+.order_summary {
+    width: 50%;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .order_summary h2 {
+    color: #f44336;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: monospace;
+  }
+  
+  .summaryDetails {
+    margin-top: 20px;
+  }
+  
+  .summaryHead {
+    margin-bottom: 20px;
+  }
+  
+  .summaryHead h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-family: monospace;
+  }
+  
+  .summaryHead span {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-family: monospace;
+  }
+  
+  .shippingAddress {
+    margin-left: 20px;
+    
+  }
+  
+  .summaryStatus {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+  
+  .summaryStatus span {
+    display: block;
+    margin-bottom: 5px;
+    border-top-style: dashed;
+    padding-top: 15px;
+    font-family: monospace;
+  }
+  span.total{
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .download-invoice-button {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 16px; /* Adjust font size as needed */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.download-invoice-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+.footer{
+  display: flex;
+  justify-content: flex-end;
+}
+  

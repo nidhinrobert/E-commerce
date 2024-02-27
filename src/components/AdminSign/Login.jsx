@@ -31,12 +31,12 @@ const Login = () => {
   };
 
   return (
-    <div className='login'>
+    <div className='signin-container'>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' />
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
-        <input type="submit" value="Login" />
+        <input className='login' type="submit" value="Login" />
       </form>
     </div>
   );

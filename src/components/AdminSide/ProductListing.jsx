@@ -1,13 +1,16 @@
-
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteProduct, getProduct, getProductbyId, setIsgetProduct } from '../../redux/ProductSlice';
-import '../../components/Modal.css'
+import '../../components/Modal.css';
 import CreateProduct from "./CreateProduct";
 import DeleteModal from "./DeleteModal";
 import { useLocation } from "react-router-dom";
-import "./Product.css"
+import "./Product.css";
+import "./productlisting.css"
 import EditProduct from './EditProduct';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+
 
 const ProductListing = () => {
     const [modal, setModal] = useState(false);
@@ -21,36 +24,27 @@ const ProductListing = () => {
     const categoryId = location.state.categoryId;
     const toggleModal = () => {
         setModal(!modal);
-       
     };
 
     useEffect(() => {
         dispatch(getProduct({categoryId}));
     }, [dispatch,categoryId]);
-    
 
     const viewDetails = async (id) => {
-        // await dispatch(getProductbyId(id));
         setEditModalMap({ ...editModalMap, [id]: true });
     };
-    
-  
 
     const handleEdit = (id) => {
         viewDetails(id);
-        
-
-
     };
     
-
     const handleCloseModal = (id) => {
         setEditModalMap({ ...editModalMap, [id]: false });
     };
 
     const removeProduct = async (id) => {
         await dispatch(deleteProduct(id));
-        dispatch(getProduct({categoryId}))
+        dispatch(getProduct({categoryId}));
     };
 
     const handleDeleteConfirmation = () => {
@@ -63,6 +57,20 @@ const ProductListing = () => {
         setDeleteConfirmation(true);
     };
 
+    const calculateDiscountedPrice = (price, discount) => {
+        if (!price || !discount) return '';
+        const discountedPrice = price - (price * discount / 100);
+        return discountedPrice.toFixed(2);
+        
+    };
+    const formatCurrency = (amount) => {
+        return new Intl.NumberFormat('en-IN', {
+          style: 'currency',
+          currency: 'INR'
+        }).format(amount);
+      };
+    
+
     return (
         <div className='product'>
             <h3>Products</h3>
@@ -73,27 +81,34 @@ const ProductListing = () => {
             </div>
 
             <div className='productContent'>
-                {Array.isArray(  productItems) && productItems?.map((product, index) => (
+                {Array.isArray(productItems) && productItems?.map((product, index) => (
                     <div className='product-box' key={index}>
-                        <button className="Product_Btn"  >   <div className='img-box'>
-                        {product.images.map((image, imageIndex) => (
-                    <img key={imageIndex} className="image" src={`http://localhost:5001/images/${image}`} alt="" />
-                ))}
-                        </div></button>
+                        <div className="image-slider">
+                          
+                              <img className="product-image" src={`http://localhost:5001/images/${product.images[0]}`} alt="" />
+                            
+                        </div>
                         <h5>{product.name}</h5>
-                        <h6>{product.price}</h6>
-                        <h6>{product.discount}</h6>
-                        <h6>{product.specifications}</h6>
-                        <p>{product.description}</p>
+      <div className="price-wrapper">
+        <span className="price-label">Price:</span>
+        <span className="price">{formatCurrency(product.price)}</span>
+        <span className="discount-label"> Off:</span>
+        <span className="discount">{product.discount}%</span>
+      </div>
+      <h6 className="specifications">Specifications: {product.specifications}</h6>
+      <p className="description">{product.description}</p>
+      <h6 className="discounted-price">
+        Discounted Price: <span className="price">{formatCurrency(calculateDiscountedPrice(Number(product.price), Number(product.discount)))}</span>
+      </h6>
                         <div>
-                            <button className="edit-btn"onClick={() => handleEdit(product._id)} >edit</button>
+                            <button className="edit-btn" onClick={() => handleEdit(product._id)}>edit</button>
                             {editModalMap[product._id] && (
                                     <div className="moda">
                                         <div className="overla"></div>
                                         <div className="modal-content">
-                                            <EditProduct product={product} categoryId={categoryId}closeModal={(closeModal) => handleCloseModal(product._id)} />
-                                            <button className="close-modal" onClick={() => handleCloseModal(product._id)} >
-                                                <div className="x">x</div>
+                                            <EditProduct product={product} categoryId={categoryId} closeModal={(closeModal) => handleCloseModal(product._id)} />
+                                            <button className="close-modal" onClick={() => handleCloseModal(product._id)}>
+                                                <div className="x"><FontAwesomeIcon icon={faXmark} /></div>
                                             </button>
                                         </div>
                                     </div> 

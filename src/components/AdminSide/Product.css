@@ -8,15 +8,16 @@
     font-size: 26px;
     
 }
-.category{
-    border: 2px solid black;
-    
+
+.product-image{
+    width: 167px;
+    height: 162px;
 }
 .categoryContent{
     display: flex;
 }
 .category-box{
-    border: 2px solid black;
+    
     margin: 25px 0px 35px 30px;
     width: 220px;
     
@@ -30,7 +31,7 @@
     font-size: 19px;
 }
 .img-box{
-    border: 2px solid;
+   
     min-height: 210px;
 }
 .img-box img{
@@ -42,3 +43,37 @@
 display: flex;
     justify-content: center;
 }
+.modal-heading {
+    margin-bottom: 20px;
+  }
+  
+  /* Button styles */
+  .confirm-button,
+  .cancel-button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+  
+  .cancel-button {
+    background-color: #f44336; /* Red */
+    color: white;
+  }
+  
+  /* Button hover effect */
+  .confirm-button:hover,
+  .cancel-button:hover {
+    opacity: 0.8;
+  }
+  .description,.specifications {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis (...) when text overflows */
+  }

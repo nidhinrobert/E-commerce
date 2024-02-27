@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct, getProduct } from "../../redux/ProductSlice";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import './CreateProduct.module.css'
 const CreateProduct = ({ toggleModal, categoryId }) => {
     const dispatch = useDispatch();
     const [name, setName] = useState("");
@@ -147,14 +149,15 @@ const CreateProduct = ({ toggleModal, categoryId }) => {
                             <div className="error">{errors.description}</div>
                         )}
                     </div>
-                    <div>
-                        <button type="submit" className="button">
+                    <div className="buttons">
+                        <button type="submit" className="add_button">
                             Add
                         </button>
+                        <button className="cancel_btn" onClick={toggleModal}>Cancel</button>
                     </div>
                 </form>
                 <button className="close-modal" onClick={toggleModal}>
-                    <div className="x">X</div>
+                    <div className="x"><FontAwesomeIcon icon={faXmark} /></div>
                 </button>
             </div>
         </div>

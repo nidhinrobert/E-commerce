@@ -2,7 +2,8 @@ import "./Admin.css"
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCategory, getCategory, getCategorybyId, setIsgetCategory } from '../../redux/slice';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import '../../components/Modal.css'
 import CreateCategory from "./CreateCategory";
 import DeleteModal from "./DeleteModal";
@@ -85,7 +86,7 @@ const Category = () => {
                                         <div className="modal-content">
                                             <EditCategory category={category} closeModal={() => handleCloseModal(category._id)} />
                                             <button className="close-modal" onClick={() => handleCloseModal(category._id)}>
-                                                <div className="x">x</div>
+                                                <div className="x"><FontAwesomeIcon icon={faXmark} /></div>
                                             </button>
                                         </div>
                                     </div>

@@ -1,0 +1,71 @@
+.userOrders {
+    padding: 20px;
+  }
+  
+  .userOrdersBox {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .userOrderSection {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .userOrderCard {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .userOrderHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .userOrderContent {
+    margin-top: 10px;
+  }
+  .userOrderImg{
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .userOrderTable {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .userOrderTable table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .userOrderTable th,
+  .userOrderTable td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .orderedProductTotal {
+    margin-top: 10px;
+  }
+  
+  .usershippingAddress {
+    margin-top: 10px;
+  }
+  
+  .usershippingAddress h4 {
+    margin-bottom: 5px;
+  }
+  .userOrderProductImg{
+    width: 50px;
+  }
+  .Userstable{
+    box-shadow: none;
+  }

@@ -1,0 +1,25 @@
+.AdminCustomerDetails{
+    display: grid;
+    padding: 20px;
+    gap: 20px;
+}
+/* .customerId{
+    display: flex;
+    justify-content: center;
+} */
+.customerInfoDetails{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: monospace;
+    color: #ff6600;
+    font-size: 18px;
+}
+.AdminCustomerInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}

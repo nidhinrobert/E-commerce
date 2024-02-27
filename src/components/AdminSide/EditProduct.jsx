@@ -116,8 +116,9 @@ const EditProduct = ({ product, closeModal,categoryId }) => {
                
                 
 
-                <div>
-                    <button type='submit'  >Edit </button>
+                    <div className='buttons'>
+                    <button type='submit'  >Edit</button>
+                    <button onClick={closeModal} className='cancel_btn'>Cancel</button>
                 </div>
             </form>
 

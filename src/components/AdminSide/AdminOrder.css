@@ -1,0 +1,57 @@
+.OrderContainer {
+    
+    margin: 0 auto;
+  }
+  
+  .AdminOrderDetails {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+    border-radius: 15px;
+  }
+  
+  thead {
+    background-color: #f4f4f4;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    font-weight: bold;
+    background-color: #ff6600;
+    color: white;
+  }
+  
+  .AdminOrderStatus {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .AdminOrderTable {
+    cursor: pointer;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .AdminOrderTable i {
+    font-size: 18px;
+    color: #007bff;
+  }
+  
+  .AdminOrderTable:hover i {
+    color: #0056b3;
+  }
+  

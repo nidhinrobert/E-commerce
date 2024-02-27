@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import "./User.css"
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -39,16 +40,17 @@ const Signup = () => {
   };
 
   return (
-    <div className='Signup'>
-      <h1>Sign Up</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' required />
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' required />
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required />
-        <button type='submit'>Sign Up</button>
-      </form>
-    </div>
+    <div className='signup-container'>
+            <h1>Sign Up</h1>
+            {error && <p className='error-message'>{error}</p>}
+            <form onSubmit={handleSubmit}>
+                <input  type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' required />
+                <input  type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' required />
+                <input  type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required />
+                <button className='login' type='submit'>Sign Up</button>
+            </form>
+            <p className='signin-link'>Already have an account? <Link to="/login">Sign In</Link></p>
+        </div>
   );
 };
 

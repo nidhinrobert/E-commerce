@@ -1,0 +1,42 @@
+.product-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-slider {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .product-image {
+    height: 165px;
+    width: 178px;
+  }
+  
+  h5 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  h6 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #888;
+  }
+  
+  .discounted-price {
+    color: #ff4d4d;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #666;
+  }
+  .price{
+    font-size: 16px;
+  }

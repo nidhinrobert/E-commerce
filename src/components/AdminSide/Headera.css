@@ -7,6 +7,7 @@
     align-items: center;
     padding: 10px 20px;
     background-color: #fff;
+    margin-bottom: 55px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -40,23 +41,9 @@
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
-    font-size: 17px;
-    position: relative;
   }
   
   .header-actions button:hover {
     background-color: #eee;
   }
-  .count{
-    background-color: #fb641b;
-    position: absolute;
-    top: -4px;
-    border-radius: 25px;
-    width: 18px;
-    font-size: 14px;
-    right: 54px;
-    color: white;
-  }
-  .header-logo h1{
-    cursor: pointer;
-  }
+  
