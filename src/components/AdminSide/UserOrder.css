@@ -81,6 +81,7 @@
 .OrderInfo{
     color: #fff;
 }
-.UserProducts{
+table.UserProducts{
     box-shadow: none;
+    border: 2px solid #d0d0d0 ;
 }

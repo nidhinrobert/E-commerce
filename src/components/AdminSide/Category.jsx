@@ -5,6 +5,7 @@ import { deleteCategory, getCategory, getCategorybyId, setIsgetCategory } from '
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import '../../components/Modal.css'
+import { setCurrentPage } from "../../redux/AdminSlice";
 import CreateCategory from "./CreateCategory";
 import DeleteModal from "./DeleteModal";
 import EditCategory from "./EditCategory";
@@ -17,11 +18,20 @@ const Category = () => {
     const [categoryToDelete, setCategoryToDelete] = useState(null);
     const dispatch = useDispatch();
     const items = useSelector((state) => state.item.items);
+    const currentPage = useSelector(state => state.admin.currentPage);  
     const [editModalMap, setEditModalMap] = useState({});
     const navigate = useNavigate();
     const toggleModal = () => {
         setModal(!modal);
     };
+    
+    const handleClick = () => {
+        // Dispatch the setCurrentPage action with a payload of 2
+        dispatch(setCurrentPage(2));
+    }
+        // Log the value of currentPage after dispatching the action
+        console.log("Current Page:", currentPage); // Log the value of currentPage
+
 
     useEffect(() => {
         dispatch(getCategory());
@@ -101,6 +111,8 @@ const Category = () => {
                 onCancel={() => setDeleteConfirmation(false)}
                 onConfirm={handleDeleteConfirmation}
             />
+            <button onClick={handleClick}>Set Current Page to 2</button>
+    
         </div>
     );
 };

@@ -45,7 +45,7 @@ const Layout = () => {
                 <Route path="/admin/order/" element={<AdminOrder />} />
                 <Route path="/admin/customers/" element={<AdminCustomers />} />
                 <Route path="/admin/User_order/" element={<UserOrder />} />
-                <Route path="/admin/customer_details/" element={<AdminCustmerDetails />} />
+                <Route path="/admin/customer_details/:userId" element={<AdminCustmerDetails />} />
                 <Route path="/adminlogout" element={<Navigate to="/loging" />} end /> 
             </Routes>
         </div>

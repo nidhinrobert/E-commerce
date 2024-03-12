@@ -86,9 +86,8 @@ const CartContent = () => {
         const discountedPrice = price - (price * discount / 100);
         return discountedPrice.toFixed(2);
     };
-    
     const totalAmount = cartDatas&&cartDatas.reduce((total, item) => {
-        const discountedPrice = calculateDiscountedPrice(item.productDetails.price, item.productDetails.discount);
+        const discountedPrice = calculateDiscountedPrice(item?.productDetails?.price, item?.productDetails?.discount);
         const totalPriceForItem = discountedPrice * item.quantity;
         return total + totalPriceForItem;
     }, 0);
@@ -121,15 +120,15 @@ const CartContent = () => {
                             {console.log("id", item?.productDetails?.name)}
                             <div className='Card'>
                                 <div className='image-box'>
-                                    <img src={`http://localhost:5001/images/${item.productDetails.images[0]}`} alt="" />
+                                    <img src={`http://localhost:5001/images/${item?.productDetails?.images[0]}`} alt="" />
 
                                 </div>
                                 <div className="product-details">
                                     <h3 className='product-name'>{item?.productDetails?.name}</h3>
                                     <div className='product-price'>
-                                        <span className='discounted-prices'>{formatCurrency(calculateDiscountedPrice(item.productDetails.price, item.productDetails.discount) * item.quantity)}</span>
-                                        <span className='discount'>{item.productDetails.discount}% off</span>
-                                        <span className='actual-price'>{formatCurrency(item.productDetails.price)}</span>
+                                        <span className='discounted-prices'>{formatCurrency(calculateDiscountedPrice(item?.productDetails?.price, item?.productDetails?.discount) * item.quantity)}</span>
+                                        <span className='discount'>{item?.productDetails?.discount}% off</span>
+                                        <span className='actual-price'>{formatCurrency(item?.productDetails?.price)}</span>
                                     </div>
                                 </div>
                             </div>

@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { getCart, retrieveCheckoutSession } from "../../redux/CartSlice";
 import "./OrderInvoice.css";
 import easyinvoice from "easyinvoice";
+import Header from "./Header";
 
 
 const OrderInvoice = () => {
@@ -109,6 +110,8 @@ const OrderInvoice = () => {
     console.log("userId", userId);
     console.log("cartItems", cartItems);
     return (
+        <div>
+            <Header/>
         <div className="Order">
             
             <div className="ordered">
@@ -198,7 +201,7 @@ const OrderInvoice = () => {
         </div>
         
         
-        
+        </div>  
     );
 };
 

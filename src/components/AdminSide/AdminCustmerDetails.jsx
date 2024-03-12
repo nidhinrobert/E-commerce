@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Header from './Header'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserOrder } from '../../redux/CartSlice';
 import "./AdminCustomerdetails.css"
@@ -8,14 +8,15 @@ import "./AdminCustomerdetails.css"
 const AdminCustmerDetails = () => {
 
     const location = useLocation();
-    const userId = localStorage.getItem('userId');
+    const {userId}=useParams();
     const dispatch = useDispatch();
     const { UserOrders } = useSelector((state) => state.cartItem);
+    
 
     useEffect(() => {
         dispatch(getUserOrder(userId));
     }, [dispatch, userId])
-
+console.log(userId);
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US');
@@ -40,7 +41,7 @@ const AdminCustmerDetails = () => {
                                 <span>Order Status: {order.orderStatus}</span>
                             </div>
 
-                            <table>
+                            <table className='customerdetailstable'>
                                 <thead>
                                     <tr>
                                         <th>Sl.No</th>
