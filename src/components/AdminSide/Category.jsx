@@ -26,11 +26,11 @@ const Category = () => {
     };
     
     const handleClick = () => {
-        // Dispatch the setCurrentPage action with a payload of 2
+        
         dispatch(setCurrentPage(2));
     }
-        // Log the value of currentPage after dispatching the action
-        console.log("Current Page:", currentPage); // Log the value of currentPage
+        
+        console.log("Current Page:", currentPage); 
 
 
     useEffect(() => {

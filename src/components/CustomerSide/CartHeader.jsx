@@ -11,10 +11,13 @@ const CartHeader = () => {
         localStorage.removeItem('token');
         navigate('/login');
     };
+    const handleHome =()=>{
+        navigate('/')
+    }
 
     return (
         <div className='header-container'>
-            <div className='header-logo'>
+            <div className='header-logo' onClick={handleHome}>
                 <h1>LOGO</h1>
             </div>
             <div className='header-search'>

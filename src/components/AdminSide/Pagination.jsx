@@ -8,7 +8,6 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 const Pagination = () => {
     const dispatch = useDispatch();
 
-    // Selectors
     const customersCount = useSelector((state) => state.admin.customersCount);
     const currentPage = useSelector(state => state.admin.currentPage);
     const itemsPerPage = useSelector((state) => state.admin.itemsPerPage);

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Header from '../AdminSide/Header'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllOrders } from '../../redux/AdminSlice';
+import { getAllOrders, setCurrentPage } from '../../redux/AdminSlice';
 import './AdminOrder.css'
 
 import { useNavigate } from 'react-router-dom';
@@ -12,18 +12,28 @@ import OrderPagination from './OrderPagination';
 const AdminOrder = () => {
     const currentPage = useSelector((state) => state.admin.currentPage);
     const itemsPerPage = useSelector((state) => state.admin.itemsPerPage);
+    const search = useSelector((state) => state.admin.search);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { orders } = useSelector((state) => state.admin);
 
     useEffect(() => {
+        
+        dispatch(setCurrentPage(currentPage));
+
         const params = {
             currentPage,
             itemsPerPage,
+            search,
+            
             
         };
+      
         dispatch(getAllOrders(params))
-    }, [dispatch, currentPage, itemsPerPage]);
+    
+    }, [dispatch, currentPage, search,itemsPerPage]);
+    
+
 
 console.log("orders",orders);
 

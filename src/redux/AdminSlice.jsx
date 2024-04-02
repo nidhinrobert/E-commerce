@@ -4,9 +4,9 @@ import axios from "axios";
 
 
 
-export const getAllOrders = createAsyncThunk('getAllOrders',async({currentPage,itemsPerPage})=>{
+export const getAllOrders = createAsyncThunk('getAllOrders',async({currentPage,itemsPerPage,search})=>{
     try{
-        const response = await axios.get(`http://localhost:5001/api/order?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`);
+        const response = await axios.get(`http://localhost:5001/api/order?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}&search=${search}`);
         return response.data;
     }catch(error){
         return error;
@@ -38,8 +38,10 @@ const initialState={
     Customers:[],
     search:"",
     currentPage:1,
-    itemsPerPage:2,
+    itemsPerPage:3,
     customersCount:0,
+    ordercurrentPage:1,
+    orderitemsPerPage:3,
     ordersCount:0,
 }
 
@@ -53,6 +55,13 @@ const AdminSlice = createSlice({
             console.log("state",state.currentPage);
         },
         setItemsPerPage: (state,action) => {
+            state.itemsPerPage = action.payload;
+        },
+        setorderCurrentPage: (state, action) => {
+            state.currentPage = action.payload;
+            console.log("state",state.currentPage);
+        },
+        setorderItemsPerPage: (state,action) => {
             state.itemsPerPage = action.payload;
         },
         setSearchValue: (state, action) => {
@@ -86,5 +95,5 @@ const AdminSlice = createSlice({
         })
     }
 });
-export const {setCurrentPage,setItemsPerPage,setSearchValue} = AdminSlice.actions;
+export const {setCurrentPage,setItemsPerPage,setorderCurrentPage,setorderItemsPerPage,setSearchValue} = AdminSlice.actions;
 export default AdminSlice.reducer;

@@ -6,11 +6,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCart } from '../../redux/CartSlice';
+import { getProduct } from '../../redux/ProductSlice';
+import { setSearchValue } from '../../redux/ProductSlice';
     
 const Header = () => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const {search}= useSelector((state)=>state.productItem)
+    const [searchValue, setSearchValueLocal] = useState('');
+    const categoryId = useLocation().state?.categoryId;
     const productCount = useSelector((state) => state.cartItem.productCount);
 
     console.log("productCount",productCount);
@@ -30,12 +35,26 @@ const Header = () => {
     const handleHome =()=>{
         navigate('/')
     }
+    useEffect(() => {
+        dispatch(getProduct({ categoryId,search }));
+    }, [dispatch, categoryId,search]);
 
-    //for count in the cart 
+    const searchChange = (e) => {
+        const newSearch = e.target.value;
+        setSearchValueLocal(newSearch);
+        dispatch(setSearchValue(newSearch))
+        dispatch(getProduct({ search: newSearch, categoryId }))
+    }
+
     useEffect(() => {
         dispatch(getCart(userId))
     }, [dispatch, userId]);
     console.log(userId);
+
+    const handleProductSearch=()=>{
+        return location.pathname.includes('/product')
+    }
+
 
     return (
         <div className='header-container'>
@@ -43,8 +62,12 @@ const Header = () => {
                 <h1 onClick={() => handleHome()}>LOGO</h1>
             </div>
             <div className='header-search'>
-                <input type="search" placeholder="Search for products" />
+                {handleProductSearch()&&(
+                    <>
+                <input type="search" value={searchValue} onChange={ searchChange }  placeholder="Search for products" />
                 <button>Search</button>
+                </>
+                )}
             </div>
             <div className='header-actions'>
                 <button onClick={() => handleOrder()}>Orders</button>

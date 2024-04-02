@@ -7,12 +7,13 @@ import ProductCss from "./Product.module.css"
 const ProductListing = () => {
     const dispatch = useDispatch();
     const productItems = useSelector((state) => state.productItem.productItems);
+    const search = useSelector((state)=>state.productItem.search)
     const navigate = useNavigate();
     const { categoryId, categoryName } = useLocation().state;
     
     useEffect(() => {
-        dispatch(getProduct({ categoryId }));
-    }, [dispatch, categoryId]);
+        dispatch(getProduct({ categoryId,search }));
+    }, [dispatch, categoryId,search]);
 
     const handleProduct = (product) => {
         navigate('/productdetails', {

@@ -18,6 +18,7 @@ const ProductListing = () => {
     const [productToDelete, setProductToDelete] = useState(null);
     const dispatch = useDispatch();
     const productItems = useSelector((state) => state.productItem.productItems);
+    const search = useSelector((state)=>state.productItem.search)
     const [editModalMap, setEditModalMap] = useState({});
     const location= useLocation();
     
@@ -27,8 +28,8 @@ const ProductListing = () => {
     };
 
     useEffect(() => {
-        dispatch(getProduct({categoryId}));
-    }, [dispatch,categoryId]);
+        dispatch(getProduct({categoryId,search}));
+    }, [dispatch,categoryId,search],);
 
     const viewDetails = async (id) => {
         setEditModalMap({ ...editModalMap, [id]: true });

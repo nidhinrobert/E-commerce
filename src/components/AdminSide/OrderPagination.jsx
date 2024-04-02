@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentPage, getCustomers } from '../../redux/AdminSlice';
+import { setCurrentPage, getCustomers, getAllOrders } from '../../redux/AdminSlice';
 import PaginationCss from './Pagination.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -9,12 +9,12 @@ const OrderPagination = () => {
     const dispatch = useDispatch();
 
     // Selectors
-    const customersCount = useSelector((state) => state.admin.customersCount);
+    const ordersCount = useSelector((state) => state.admin.ordersCount);
     const currentPageNumber = useSelector((state) => state.admin.currentPage);
     const itemsPerPage = useSelector((state) => state.admin.itemsPerPage);
 
-
-    const totalPages = Math.ceil(customersCount / itemsPerPage);
+    
+    const totalPages = Math.ceil(ordersCount / itemsPerPage);
 
 
     const pageNumbers = [];

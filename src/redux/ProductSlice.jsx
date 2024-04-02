@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getProduct = createAsyncThunk('getProduct', async ({categoryId}) => {
+export const getProduct = createAsyncThunk('getProduct', async ({categoryId,search}) => {
     try {
-        const response = await axios.get(`http://localhost:5001/api/product?categoryId=${categoryId}`)
+        const response = await axios.get(`http://localhost:5001/api/product?categoryId=${categoryId}&search=${search}`)
         if (!response.data) {
             throw new Error('product not found')
         }
@@ -91,6 +91,7 @@ export const deleteProduct = createAsyncThunk('productItems/deleteProduct',async
         product:[],
         status: 'idle',
         error: null,
+        search:"",
         isaddProduct: false,
     };
     
@@ -103,6 +104,9 @@ export const deleteProduct = createAsyncThunk('productItems/deleteProduct',async
             },
             setIsaddProduct: (state, action) => {
                 state.isaddProduct = action.payload;
+            },
+            setSearchValue: (state, action) => {
+                state.searchValue = action.payload;
             },
         },
         extraReducers: (builder) => {
@@ -156,5 +160,5 @@ export const deleteProduct = createAsyncThunk('productItems/deleteProduct',async
                 });
         },
     });
-    export const{setIsgetProduct,setIsaddProduct }= productSlice.actions;
+    export const{setIsgetProduct,setIsaddProduct,setSearchValue }= productSlice.actions;
     export default productSlice.reducer;
